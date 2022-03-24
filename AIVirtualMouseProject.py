@@ -1,7 +1,6 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Mar 24 13:46:39 2022
+import cv2
+import numpy as np
+import HandTrackingModule as htm
+import time
 
-@author: canyl
-"""
-
+ 
