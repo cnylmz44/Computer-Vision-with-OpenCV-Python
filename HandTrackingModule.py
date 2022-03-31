@@ -13,7 +13,8 @@ class handDetector():
         self.trackCon = trackCon
         
         self.mpHands = mp.solutions.hands
-        self.hands = self.mpHands.Hands(self.mode, self.maxHands, self.modelComplexity , self.detectionCon, self.trackCon)
+        self.hands = self.mpHands.Hands(self.mode, self.maxHands, 
+                                        self.modelComplexity , self.detectionCon, self.trackCon)
         self.mpDraw =  mp.solutions.drawing_utils
         self.tipIds = [4, 8, 12, 16, 20]
         
@@ -48,7 +49,7 @@ class handDetector():
                 yList.append(cy)
                 self.lmList.append([id, cx, cy])
                 if draw:
-                    cv2.circle(img, (cx,cy),5,(255,0,255), cv2.FILLED )
+                    cv2.circle(img, (cx,cy),5,(255,0,0), cv2.FILLED )
                 
                 # if id==0:
                 #     cv2.circle(img, (cx,cy),25,(255,0,255), cv2.FILLED )
@@ -104,9 +105,7 @@ def main():
     while True:
         success, img = cap.read()
         img = detector.findHands(img)
-        time.sleep(2)
         lmList, bbox = detector.findPosition(img)
-        time.sleep(2)
         
         cTime = time.time()
         fps = 1/(cTime-pTime)
